@@ -4,7 +4,7 @@ import DecisionTree from "./Tags/Tags"; // Importando el componente Tags
 
 const AccordionBerlin: React.FC = () => {
 
-  const [openIndexes, setOpenIndexes] = useState<number[]>([1]);
+  const [openIndexes, setOpenIndexes] = useState<number[]>([2]);
 
   const toggleItem = (index: number) => {
     setOpenIndexes((prev) =>
