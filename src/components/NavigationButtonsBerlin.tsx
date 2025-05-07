@@ -10,30 +10,30 @@ const NavigationButtonsBerlin: React.FC<NavigationButtonsBerlinProps> = ({ handl
   return (
     <nav className="navigation-buttons">
       <ul style={{ listStyle: 'none', padding: 0, width: '100%' }}>
-        <li style={{ width: '100%' }}>
+        <li className='button-list'>
           <button onClick={handleButtonClick}
-            type="button" className="button button--light button--fulltone" style={{ width: '100%' }}>
+            type="button" className="button button--light button--fulltone menu arrow">
             Überblick
           </button>
           {isOpen && <Uberblick />}
         </li>
-        <li style={{ width: '100%' }}>
-          <button type="button" className="button button--light" style={{ width: '100%' }}>
+        <li>
+          <button type="button" className="button button--light menu arrow">
             Unterlagen
           </button>
         </li>
-        <li style={{ width: '100%' }}>
-          <button type="button" className="button button--light" style={{ width: '100%' }}>
+        <li>
+          <button type="button" className="button button--light menu arrow">
             Beratung
           </button>
         </li>
-        <li style={{ width: '100%' }}>
-          <button type="button" className="button button--light" style={{ width: '100%' }}>
+        <li>
+          <button type="button" className="button button--light menu arrow">
             Videos
           </button>
         </li>
-        <li style={{ width: '100%' }}>
-          <button type="button" className="button" style={{ width: '100%' }}>
+        <li>
+          <button type="button" className="button arrow">
             Online beantragen
             <span className="icon">
             </span>

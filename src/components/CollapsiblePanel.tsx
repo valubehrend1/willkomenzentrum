@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { AccordionItems } from "@/data";
-import DecisionTree from "./Tags/Tags"; // Importando el componente Tags
+import DecisionTree from "./Tags/Tags";
+import Calculator from "./Calculator/Calculator";
 
 const AccordionBerlin: React.FC = () => {
 
-  const [openIndexes, setOpenIndexes] = useState<number[]>([2]);
+  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
 
   const toggleItem = (index: number) => {
     setOpenIndexes((prev) =>
@@ -36,7 +37,8 @@ const AccordionBerlin: React.FC = () => {
             >
               <div className="text">
                 <div className="textile">{item.content}</div>
-                {index === 2 && <DecisionTree />} {/* Renderiza el componente Tags si es el ítem 3 (índice 2) */}
+                {index === 2 && <DecisionTree />}
+                {index === 3 && <Calculator />}
               </div>
             </div>
           </li>
