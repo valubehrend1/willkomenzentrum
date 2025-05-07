@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AccordionItems } from "@/data";
 import DecisionTree from "./Tags/Tags"; // Importando el componente Tags
 

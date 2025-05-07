@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const DecisionTree: React.FC = () => {
   // Estado para seguir la ubicación actual en el árbol de decisiones
   const [currentScreen, setCurrentScreen] = useState("start");
-  // Historial para implementar la funcionalidad de "Zurück" (Atrás)
-  const [history, setHistory] = useState<string[]>([]);
   // Estado para botones temporalmente seleccionados
   const [tempSelection, setTempSelection] = useState<string | null>(null);
 
