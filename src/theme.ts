@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
-// Tema personalizado para la aplicación de Einbürgerung
+// Tema personalizado para la aplicación que es compatible con los estilos de Berlín
 const theme = createTheme({
   palette: {
     primary: {
@@ -9,36 +9,18 @@ const theme = createTheme({
     secondary: {
       main: '#f8bbd0', // Rosa claro para el selector de idioma
     },
-    background: {
-      default: '#f5f5f5', // Fondo gris claro
-      paper: '#ffffff',
-    },
-    text: {
-      primary: '#212121',
-      secondary: '#757575',
-    },
+    // Mantenemos los colores de fondo y texto pero permitimos que los estilos de Berlín tengan prioridad
   },
   typography: {
+    // Dejamos la configuración básica de tipografía pero con menor especificidad
     fontFamily: [
       'Roboto',
       'Arial',
       'sans-serif',
     ].join(','),
-    h5: {
-      fontWeight: 500,
-      fontSize: '1.25rem',
-    },
-    body1: {
-      fontSize: '1rem',
-    },
-    body2: {
-      fontSize: '0.875rem',
-    },
-  },
-  shape: {
-    borderRadius: 4,
   },
   components: {
+    // Mantenemos algunas personalizaciones de componentes pero reducimos su especificidad
     MuiButton: {
       styleOverrides: {
         root: {
@@ -46,44 +28,7 @@ const theme = createTheme({
         },
       },
     },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          boxShadow: 'none',
-        },
-      },
-    },
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#ffffff',
-          color: '#212121',
-        },
-      },
-    },
-    MuiBottomNavigation: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#ffffff',
-        },
-      },
-    },
-    MuiIconButton: {
-      styleOverrides: {
-        root: {
-          color: '#757575',
-        },
-      },
-    },
-    MuiAccordion: {
-      styleOverrides: {
-        root: {
-          '&:before': {
-            display: 'none',
-          }
-        },
-      },
-    },
+    // Eliminamos algunas configuraciones que podrían estar en conflicto con los estilos de Berlín
   },
 });
 

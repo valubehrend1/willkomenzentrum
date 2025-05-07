@@ -1,69 +1,49 @@
-import { useState } from 'react';
-import { styled } from '@mui/material/styles';
-import { 
-  Accordion, 
-  AccordionSummary, 
-  AccordionDetails, 
-  Typography, 
-  Box 
-} from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import React, { useState, useEffect } from "react";
+import { AccordionItems } from "@/data";
+import DecisionTree from "./Tags/Tags"; // Importando el componente Tags
 
-const StyledAccordion = styled(Accordion)(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: 'none',
-  '&:before': {
-    display: 'none',
-  },
-  marginBottom: theme.spacing(1.5),
-}));
+const AccordionBerlin: React.FC = () => {
 
-const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
-  padding: theme.spacing(1, 2),
-  '& .MuiAccordionSummary-content': {
-    margin: theme.spacing(1, 0),
-  },
-}));
+  const [openIndexes, setOpenIndexes] = useState<number[]>([1]);
 
-const StyledAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
-  borderTop: `1px solid ${theme.palette.divider}`,
-  padding: theme.spacing(2),
-}));
-
-interface CollapsiblePanelProps {
-  title: string;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
-  defaultOpen?: boolean;
-}
-
-export default function CollapsiblePanel({ title, icon, children, defaultOpen = false }: CollapsiblePanelProps) {
-  const [expanded, setExpanded] = useState(defaultOpen);
-
-  const handleChange = () => {
-    setExpanded(!expanded);
+  const toggleItem = (index: number) => {
+    setOpenIndexes((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
   };
 
   return (
-    <StyledAccordion expanded={expanded} onChange={handleChange}>
-      <StyledAccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-      >
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {icon && (
-            <Box sx={{ mr: 1, display: 'flex', alignItems: 'center' }}>
-              {icon}
-            </Box>
-          )}
-          <Typography variant="body1" fontWeight="medium">
-            {title}
-          </Typography>
-        </Box>
-      </StyledAccordionSummary>
-      <StyledAccordionDetails>
-        {children}
-      </StyledAccordionDetails>
-    </StyledAccordion>
+    <ul className="js-accordion initialized" data-allow-multiple="true" id="myid90029">
+      {AccordionItems.map((item, index) => {
+        const isOpen = openIndexes.includes(index);
+        return (
+          <li key={index}>
+            <strong
+              className={`js-accordion__heading ${isOpen ? "open" : "closed"}`}
+              tabIndex={0}
+              role="button"
+              aria-controls={`panel${index}_of_myid90029`}
+              aria-expanded={isOpen}
+              onClick={() => toggleItem(index)}
+              onKeyDown={(e) => e.key === "Enter" && toggleItem(index)}
+            >
+              <span className="title">{item.title}</span>
+            </strong>
+            <div
+              className={`js-accordion__panel ${isOpen ? "opened" : "closed"}`}
+              id={`panel${index}_of_myid90029`}
+              style={{ display: isOpen ? "block" : "none" }}
+            >
+              <div className="text">
+                <div className="textile">{item.content}</div>
+                {index === 2 && <DecisionTree />} {/* Renderiza el componente Tags si es el ítem 3 (índice 2) */}
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
   );
-}
+};
+
+export default AccordionBerlin;
