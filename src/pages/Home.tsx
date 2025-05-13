@@ -1,4 +1,4 @@
-import { Box, Container, useMediaQuery, Grid, useTheme } from '@mui/material';
+import { useMediaQuery, Grid, useTheme } from '@mui/material';
 import HeaderBerlin from '../components/Header';
 import NavigationButtonsBerlin from '../components/NavigationButtonsBerlin';
 import Footer from '@/components/Footer';
