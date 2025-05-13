@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AccordionItems } from "@/data";
 import DecisionTree from "./Tags/Tags";
 import Calculator from "./Calculator/Calculator";
+import { useTheme, useMediaQuery } from '@mui/material';
 
 const AccordionBerlin: React.FC = () => {
-
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
   const [openIndexes, setOpenIndexes] = useState<number[]>([]);
+
+  // Efecto para abrir el primer panel en desktop automáticamente
+  useEffect(() => {
+    if (isDesktop && !openIndexes.includes(0)) {
+      setOpenIndexes(prev => [...prev, 0]);
+    }
+  }, [isDesktop]);
 
   const toggleItem = (index: number) => {
     setOpenIndexes((prev) =>

@@ -1,29 +1,21 @@
 import React, { useState } from "react";
 
 const DecisionTree: React.FC = () => {
-  // Estado para seguir la ubicación actual en el árbol de decisiones
   const [currentScreen, setCurrentScreen] = useState("start");
-  // Estado para botones temporalmente seleccionados
   const [tempSelection, setTempSelection] = useState<string | null>(null);
 
-  // Función para navegar a una nueva pantalla
   const navigateTo = (screen: string) => {
-      // Seleccionar temporalmente el botón
       setTempSelection(screen);
       
-      // Establecer un temporizador para cambiar de pantalla después de 300ms
       setTimeout(() => {
         setCurrentScreen(screen);
         setTempSelection(null);
       }, 300);
   };
 
-  // Función personalizada para volver atrás según la pantalla actual
   const goBack = () => {
-      // Seleccionar temporalmente el botón de retroceso
       setTempSelection("back");
       
-      // Establecer un temporizador para volver atrás después de 300ms
       setTimeout(() => {
           switch (currentScreen) {
               case "yes_german":
@@ -46,7 +38,6 @@ const DecisionTree: React.FC = () => {
       }, 300);
   };
 
-  // Estilo para los botones
   const buttonStyle = (selected: boolean, buttonId: string) => ({
     padding: "8px 16px",
     margin: "0 8px",
@@ -60,26 +51,22 @@ const DecisionTree: React.FC = () => {
     transition: "ease 0.3s",
   });
 
-  // Estilo para el contenedor de botones
   const buttonContainerStyle = {
     display: "flex",
     marginTop: "20px",
     marginBottom: "20px",
   };
 
-  // Estilo para el contenedor principal
   const containerStyle = {
     margin: "0 auto",
   };
 
-  // Estilo para el texto
   const textStyle = {
     marginTop: "20px",
     marginBottom: "20px",
     lineHeight: "1.5",
   };
 
-  // Renderizado condicional basado en la pantalla actual
   const renderContent = () => {
     switch (currentScreen) {
       case "start":
