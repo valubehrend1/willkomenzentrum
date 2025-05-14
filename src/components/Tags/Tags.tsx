@@ -1,41 +1,42 @@
 import React, { useState } from "react";
+import '../../../public/styles/tags.css';
 
 const DecisionTree: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState("start");
   const [tempSelection, setTempSelection] = useState<string | null>(null);
 
   const navigateTo = (screen: string) => {
-      setTempSelection(screen);
-      
-      setTimeout(() => {
-        setCurrentScreen(screen);
-        setTempSelection(null);
-      }, 300);
+    setTempSelection(screen);
+
+    setTimeout(() => {
+      setCurrentScreen(screen);
+      setTempSelection(null);
+    }, 300);
   };
 
   const goBack = () => {
-      setTempSelection("back");
-      
-      setTimeout(() => {
-          switch (currentScreen) {
-              case "yes_german":
-              case "no_german":
-                  setCurrentScreen("start");
-                  break;
-              case "yes_b1":
-              case "no_b1":
-                  setCurrentScreen("start");
-                  break;
-              case "yes_school":
-              case "no_school":
-                  setCurrentScreen("yes_german");
-                  break;
-              default:
-                  setCurrentScreen("start");
-                  break;
-          }
-          setTempSelection(null);
-      }, 300);
+    setTempSelection("back");
+
+    setTimeout(() => {
+      switch (currentScreen) {
+        case "yes_german":
+        case "no_german":
+          setCurrentScreen("start");
+          break;
+        case "yes_b1":
+        case "no_b1":
+          setCurrentScreen("start");
+          break;
+        case "yes_school":
+        case "no_school":
+          setCurrentScreen("yes_german");
+          break;
+        default:
+          setCurrentScreen("start");
+          break;
+      }
+      setTempSelection(null);
+    }, 300);
   };
 
   const buttonStyle = (selected: boolean, buttonId: string) => ({
@@ -119,7 +120,8 @@ const DecisionTree: React.FC = () => {
             </div>
             <div style={textStyle}>
               <p>
-                Dann besuche einen Deutschkurs. Wie das geht und wo in Berlin du einen Deutschkurs machen kannst, findest du hier [Verweis: Intern, andere Ergebnisseite auf gleicher Plattform].
+                Dann besuche einen Deutschkurs. Wie das geht und wo in Berlin du einen Deutschkurs machen kannst,
+                {<a href="#" aria-label="internal link" title="homepage" className="more">findest du hier</a>}.
               </p>
             </div>
           </div>
@@ -181,7 +183,7 @@ const DecisionTree: React.FC = () => {
             </div>
             <div style={textStyle}>
               <p>
-                Dann brauchst du nur einen Nachweis darüber. Mehr Informationen findest zu unter „Meine Unterlagen" [Verweis: Intern, andere Seite auf gleicher Plattform].
+                Dann brauchst du nur einen Nachweis darüber. Mehr Informationen findest zu unter <a href="#" aria-label="My documents" title="My documents" className="more">„Meine Unterlagen"</a>
               </p>
             </div>
           </div>
@@ -204,7 +206,7 @@ const DecisionTree: React.FC = () => {
             </div>
             <div style={textStyle}>
               <p>
-                Dann kannst du eine Prüfung machen. Das geht bei den Volkshochschulen in Berlin [Link], dem Goethe-Institut [Link] oder einem anderen zertifizierten Prüfungszentrum. Dort meldest du dich an und zahlst die Kosten. Wenn du die Prüfung bestanden hast, bekommst du dein Zertifikat.
+                Dann kannst du eine Prüfung machen. Das geht bei den {<a href="https://www.berlin.de/vhs/" target="_blank" className="extern">Volkshochschulen in Berlin</a>}, {<a href="https://www.goethe.de/de/spr/kur.html" target="_blank" className="extern">dem Goethe-Institut</a>} oder einem anderen zertifizierten Prüfungszentrum. Dort meldest du dich an und zahlst die Kosten. Wenn du die Prüfung bestanden hast, bekommst du dein Zertifikat.
               </p>
             </div>
           </div>
