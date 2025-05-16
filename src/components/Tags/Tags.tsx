@@ -73,7 +73,7 @@ const DecisionTree: React.FC = () => {
       case "start":
         return (
           <div>
-            <h3>Sprechen Sie Deutsch?</h3>
+            <h3>Sprichst du Deutsch?</h3>
             <div style={buttonContainerStyle}>
               <button style={buttonStyle(false, "yes_german")} onClick={() => navigateTo("yes_german")}>
                 Ja
@@ -88,7 +88,7 @@ const DecisionTree: React.FC = () => {
       case "yes_german":
         return (
           <div>
-            <h3>Haben Sie ein B1-Zertifikat?</h3>
+            <h3>Hast du ein B1-Zertifikat?</h3>
             <div style={buttonContainerStyle}>
               <button style={buttonStyle(false, "yes_b1")} onClick={() => navigateTo("yes_b1")}>
                 Ja
@@ -106,7 +106,7 @@ const DecisionTree: React.FC = () => {
       case "no_german":
         return (
           <div>
-            <h3>Sprechen Sie Deutsch?</h3>
+            <h3>Sprichst du Deutsch?</h3>
             <div style={buttonContainerStyle}>
               <button style={buttonStyle(false, "yes_german")} onClick={() => navigateTo("yes_german")}>
                 Ja
@@ -130,7 +130,7 @@ const DecisionTree: React.FC = () => {
       case "yes_b1":
         return (
           <div>
-            <h3>Haben Sie ein B1-Zertifikat?</h3>
+            <h3>Hast du ein B1-Zertifikat?</h3>
             <div style={buttonContainerStyle}>
               <button style={buttonStyle(true, "yes_b1")} onClick={() => navigateTo("yes_b1")}>
                 Ja
@@ -143,7 +143,7 @@ const DecisionTree: React.FC = () => {
               </button>
             </div>
             <div style={textStyle}>
-              <p style={{ color: '#007256' }}>Sie erfüllen diese Anforderung!</p>
+              <p style={{ color: '#007256' }}>Du erfüllst diese Anforderung!</p>
             </div>
           </div>
         );
@@ -151,7 +151,7 @@ const DecisionTree: React.FC = () => {
       case "no_b1":
         return (
           <div>
-            <h3>Sind Sie in Deutschland zur Schule gegangen?</h3>
+            <h3>Bist du in Deutschland zur Schule gegangen?</h3>
             <div style={buttonContainerStyle}>
               <button style={buttonStyle(false, "yes_school")} onClick={() => navigateTo("yes_school")}>
                 Ja
@@ -169,7 +169,7 @@ const DecisionTree: React.FC = () => {
       case "yes_school":
         return (
           <div>
-            <h3>Sind Sie in Deutschland zur Schule gegangen?</h3>
+            <h3>Bist du in Deutschland zur Schule gegangen?</h3>
             <div style={buttonContainerStyle}>
               <button style={buttonStyle(true, "yes_school")} onClick={() => navigateTo("yes_school")}>
                 Ja
@@ -192,7 +192,7 @@ const DecisionTree: React.FC = () => {
       case "no_school":
         return (
           <div>
-            <h3>Sind Sie in Deutschland zur Schule gegangen?</h3>
+            <h3>Bist du in Deutschland zur Schule gegangen?</h3>
             <div style={buttonContainerStyle}>
               <button style={buttonStyle(false, "yes_school")} onClick={() => navigateTo("yes_school")}>
                 Ja
@@ -213,7 +213,7 @@ const DecisionTree: React.FC = () => {
         );
 
       default:
-        return <div>Error: Pantalla no encontrada</div>;
+        return <div>Error</div>;
     }
   };
 

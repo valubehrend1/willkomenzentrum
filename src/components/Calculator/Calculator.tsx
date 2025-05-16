@@ -1,4 +1,5 @@
 import React, { useState, FormEvent } from "react";
+import '../../../public/styles/calculator.css';
 
 const NumberInputForm: React.FC = () => {
     const [income, setIncome] = useState<string>("");
